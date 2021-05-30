@@ -26,7 +26,11 @@ export class AppComponent {
         arrayEmpl.push(this.selectedEmpleado);
         localStorage.setItem('empleados', JSON.stringify(arrayEmpl));
       }
+    }else{
+      localStorage.clear();
+      localStorage.setItem('empleados', JSON.stringify(this.empleadoArray));
     }
+    
     this.selectedEmpleado = new Empleado();
     
   }
