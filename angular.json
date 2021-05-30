@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ejemploRegistroLogin"
+    }
+  },
+  "defaultProject": "ejemploRegistroLogin",
+  "cli": {
+    "analytics": false
+  }
 }
