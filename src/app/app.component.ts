@@ -10,7 +10,9 @@ export class AppComponent {
     {id: 1, name: "Camilo", city: "Bogotá"},
     {id: 2, name: "Deyci", city: "Floridablanca"}
   ];
+
   selectedEmpleado: Empleado = new Empleado();
+  
   addOrEdit(){
     if(this.selectedEmpleado.id === 0 ){
       this.selectedEmpleado.id = this.empleadoArray.length + 1
@@ -27,6 +29,17 @@ export class AppComponent {
       this.empleadoArray = this.empleadoArray.filter(x => x != this.selectedEmpleado);
       this.selectedEmpleado = new Empleado();
     }
+  }
+  getEmpleado(){
+    if(localStorage.getItem('empleados') === null){
+      return this.empleadoArray;
+    }else{
+      this.empleadoArray = JSON.parse(localStorage.getItem('empleados'))
+      return this.empleadoArray;
+    }
+  }
+  ngOnInit(): void {
+    this.empleadoArray = this.getEmpleado();
   }
 
 }
